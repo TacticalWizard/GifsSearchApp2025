@@ -1,4 +1,4 @@
-import type { FC } from "react"; //Another way of using props
+import type { FC } from 'react'; //Another way of using props
 
 interface Props{
     subTitle?: string;

@@ -1,10 +1,13 @@
 # React + TypeScript + Vite
 
 
-notes:
+<!-- Dev notes: -->
 *to test deploy install http-server(local hosting)
 *npm install --global http-server
 *command: http-server -o  <!-- to open server -->
+
+<!-- vitest and testing library  -->
+*npm install --save-dev @testing-library/react @testing-library/dom vitest jsdom
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
