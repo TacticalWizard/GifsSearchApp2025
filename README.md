@@ -8,6 +8,8 @@
 
 <!-- vitest and testing library  -->
 *npm install --save-dev @testing-library/react @testing-library/dom vitest jsdom
+<!-- Axios mock adapter -->
+* npm install axios-mock-adapter --save-dev
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
