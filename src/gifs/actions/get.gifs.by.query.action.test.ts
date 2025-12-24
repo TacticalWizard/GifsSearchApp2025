@@ -65,6 +65,5 @@ describe( 'get.figs.by.query.action', () => {
         expect(consoleErrorSpy).toHaveBeenCalled();
         expect(consoleErrorSpy).toBeCalledTimes(1);
         expect(consoleErrorSpy).toBeCalledWith(expect.anything());
-        console.log(gifs);
     });
 });

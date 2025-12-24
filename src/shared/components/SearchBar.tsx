@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface Props{
-    placeHolder: string;
+    placeHolder?: string;
     onQuery: (query:string) => void; //it´s void because this is only so we can call the function from the father component
 }
 
@@ -14,7 +14,6 @@ export const SearchBar = ( {placeHolder = 'Buscar', onQuery} : Props) => { //add
             }, 1200);
 
             return () => { //effect triggered each time the component is loaded and every time the callback function is executed
-                console.log('Funcion de limpieza');
                 clearTimeout(timeoutId);
             };
         },[query, onQuery])  //added dependencies wich are going to use the effect

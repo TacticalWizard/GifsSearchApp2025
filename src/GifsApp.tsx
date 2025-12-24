@@ -8,7 +8,7 @@ import { useGifs } from './gifs/hooks/useGifs.tsx';
 
 export const GifsApp = () => {
     
-    const { previousHistory, gifList, handleTermClicked, handleSearch } = useGifs();
+    const { previousRecords, gifList, handleTermClicked, handleSearch } = useGifs();
 
     return(
         <>
@@ -26,7 +26,7 @@ export const GifsApp = () => {
 
             {/* Search History */}
             <PreviousSearches 
-                subTitle="historial" searches= { previousHistory } 
+                subTitle="historial" searches= { previousRecords } 
                 onLabelClicked= {handleTermClicked} 
             />  {/* onLabelClicked= (term: string) => {term}*/}
 

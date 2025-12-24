@@ -4,41 +4,40 @@ import { getGifByQuery } from '../actions/get.gifs.by.query.action.ts';
 
 export const useGifs = (  ) => {
         
-    const [previousHistory, setpreviousHistory] = useState<string[]>([]) //USE STATE
-    const [gifList, SetGifList] = useState<Gif[]>([]);
+    const [previousRecords, setpreviousRecord] = useState< string[] > ([]) //USE STATE
+    const [gifList, setGifList] = useState< Gif[] > ([]);
 
-    const gifsCache = useRef<Record<string, Gif[]>>({});
+    const gifsCache = useRef<Record <string, Gif[]> > ({});
 
     const handleTermClicked = async (term: string) => {
-        console.log({ term })
+        //console.log({ term })
         if( gifsCache.current[term]) {
-            SetGifList(gifsCache.current[term]);
+            setGifList(gifsCache.current[term]);
             return;
         }
         const gifs = await getGifByQuery(term);
-        SetGifList(gifs);
+        setGifList(gifs);
+        //gifsCache.current[term] = gifs;
     }
     
     const handleSearch = async (query: string) => { //query parameter will be the string searched by the user
     
-        console.log({ query })
     
         if (query.length === 0) return;
         
         const queryFormatted = query.trim().toLowerCase(); //delete forward and back empty spaces
-        console.log({ queryFormatted })
+        //console.log({ queryFormatted })
         
-        const queryExisted = previousHistory.includes(queryFormatted);
+        const queryExisted = previousRecords.includes(queryFormatted);
                 
         if (queryExisted) return
     
-        setpreviousHistory([query, ...previousHistory].splice(0,7));
+        setpreviousRecord([query, ...previousRecords].splice(0,7));
     
         const gifs = await getGifByQuery(query);
     
-        console.log(gifs);
     
-        SetGifList(gifs);
+        setGifList(gifs);
 
         gifsCache.current[query] = gifs;
     }
@@ -46,8 +45,8 @@ export const useGifs = (  ) => {
         return{
             //props
             gifList,
+            previousRecords,
             //methods
-            previousHistory,
             handleTermClicked,
             handleSearch,
         }
