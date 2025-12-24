@@ -9,14 +9,13 @@ describe( 'customHeader', () => {
     test('should render the title correctly', () => {
         //const { container } = render(<CustomHeader title="Buscador de Gifs" />); another way of doing it with container
         
-        render(<CustomHeader title = {title} />);
-
         /*const testTitle = screen.getByRole('heading', {
             level: 1,
         });*/
 
-        const testTitle = screen.getByText(title);
+        render(<CustomHeader title = {title} />);
 
+        const testTitle = screen.getByText(title);
         //screen.debug(); //to see what's rendering 
 
         expect(testTitle).toBeDefined();
